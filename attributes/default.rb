@@ -1,7 +1,7 @@
 default['project_data']['name'] = 'stampede'
 default['project_data']['profile_name'] = 'standard'
-default['project_data']['hostname'] = "#{node.project_data.name]}.local.elephantventures.com"
-default['project_data']['base_url'] = "http://#{node.project_data.hostname]}"
+default['project_data']['hostname'] = "#{node.project_data.name}.local.elephantventures.com"
+default['project_data']['base_url'] = "http://#{node.project_data.hostname}"
 default['project_data']['workspace_dir'] = "/home/vagrant/workspace/#{node.project_data.name}"
 default['project_data']['drupal_table_prefix'] = ""
 
