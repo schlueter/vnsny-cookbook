@@ -29,13 +29,13 @@ switch ($_ENV['AH_SITE_ENVIRONMENT']) {
         'host'     => '<%= @db_host %>',
         'port'     => '',
         'driver'   => 'mysql',
-        'prefix'   => '<%= node[:project_data][:drupal_table_prefix] %>',
+        'prefix'   => '<%= @drupal_table_prefix %>',
       );
 
     // Various Drupal variables to set.
     $drupal_hash_salt = '';
-    $base_url = '<%= node[:project_data][:base_url] %>';
-    $conf['install_profile'] = '<%= node[:project_data][:profile_name] %>';
+    $base_url = '<%= @base_url %>';
+    $conf['install_profile'] = '<%= @profile_name %>';
 
     // Fast 404 settings.
     $conf['404_fast_paths_exclude'] = '/\/(?:styles)\//';

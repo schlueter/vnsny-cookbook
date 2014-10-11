@@ -1,7 +1,7 @@
 web_app node['project_data']['name'] do
   server_name node['project_data']['hostname']
   server_aliases [node['project_data']['hostname']]
-  docroot "#{node.project_data.workspace_dir}/web"
+  docroot "#{node['project_data']['workspace_dir']}/web"
   allow_override "All"
 end
 

@@ -1,5 +1,5 @@
 app_name = node['project_data']['name']
-deploy_dir = "#{node.project_data.workspace_dir}/web"
+deploy_dir = "#{node['project_data'][.workspace_dir}/web"
 db_host = 'localhost'
 db_pass = node['project_data']['name']
 db_user = node['project_data']['name']
@@ -12,15 +12,18 @@ template "#{deploy_dir}/sites/default/settings.php" do
   group "www-data"
   mode 0777
   variables({
-    :db_host => db_host,
-    :db_pass => db_pass,
-    :db_user => db_user,
-    :db_name => db_name
+    base_url: node['project_data']['base_url'],
+    db_host: db_host,
+    db_name: db_name,
+    db_pass: db_pass,
+    db_user: db_user,
+    drupal_table_prefix: node['project_data']['drupal_table_prefix'],
+    profile_name: node['project_data']['profile_name']
   })
 end
 
 # make sure sites/default/files is world readable and apache writeable
-directory "#{node.project_data.workspace_dir}/web/sites/default/files" do
+directory "#{deploy_dir}/sites/default/files" do
   owner 'vagrant'
   group 'www-data'
   mode 0755
