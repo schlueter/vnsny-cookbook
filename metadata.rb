@@ -1,0 +1,5 @@
+name 'vnsny'
+depends 'apt'
+depends 'mysql'
+depends 'apache2'
+depends 'database'
