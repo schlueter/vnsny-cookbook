@@ -41,10 +41,10 @@ end
 
 execute 'site-install' do
   command <<-COMMAND
-  /usr/bin/drush site-install #{profile_name}
-   --db-url=mysql://#{db_user}:#{db_pass}@#{db_host}/#{db_name}
-   --site-name=#{app_name}
-   --account-name=admin --account-pass=elephant -y
+  /usr/bin/drush site-install #{profile_name} \
+   --db-url=mysql://#{db_user}:#{db_pass}@#{db_host}/#{db_name} \
+   --site-name=#{app_name} \
+   --account-name=admin --account-pass=elephant -y \
    && /usr/bin/drush user-add-role "administrator" admin
   COMMAND
   cwd deploy_dir
