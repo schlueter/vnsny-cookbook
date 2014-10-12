@@ -1,5 +1,5 @@
 app_name = node['project_data']['name']
-deploy_dir = "#{node['project_data'][.workspace_dir}/web"
+deploy_dir = "#{node['project_data']['workspace_dir']}/web"
 db_host = 'localhost'
 db_pass = node['project_data']['name']
 db_user = node['project_data']['name']
