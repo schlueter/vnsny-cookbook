@@ -9,6 +9,7 @@ end
 apache_site 'default' do
   enable false
 end
+
 apache_site '000-default.conf' do
   enable false
 end

@@ -13,6 +13,7 @@ default['project_data']['packages'] = %w{
   php5-mysql
   php5-gd
   php-pear
+  ruby1.9.1-dev
 }
 
 default['project_data']['gems'] = %w{
