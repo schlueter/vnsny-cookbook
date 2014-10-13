@@ -2,7 +2,7 @@ web_app node['project_data']['name'] do
   server_name node['project_data']['hostname']
   server_aliases [node['project_data']['hostname']]
   docroot "#{node['project_data']['workspace_dir']}/web"
-  allow_override "All"
+  allow_override 'All'
   cookbook 'vnsny'
 end
 
@@ -16,14 +16,15 @@ template 'apache2.conf' do
   when 'freebsd'
     path "#{node['apache']['dir']}/httpd.conf"
   end
-  source   'apache2.conf.erb'
-  owner    'root'
-  group    node['apache']['root_group']
-  mode     '0644'
+  source 'apache2.conf.erb'
+  owner 'root'
+  group node['apache']['root_group']
+  mode '0644'
   notifies :reload, 'service[apache2]'
 end
 
-### a kludge since the name of the default site seems to have changed from 2.2 to 2.4?
+# a kludge since the name of the default site seems to
+# have changed from 2.2 to 2.4?
 apache_site 'default' do
   enable false
 end
